@@ -6,6 +6,9 @@ use App\User;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
+use Illuminate\Http\Request;
+use App\Jobs\SendVerificationEmail;
+use Illuminate\Auth\Events\Registered;
 
 class RegisterController extends Controller
 {
@@ -65,7 +68,41 @@ class RegisterController extends Controller
         return User::create([
             'name' => $data['name'],
             'email' => $data['email'],
+            'role_id' => 3,
+            'confirmed' => 0,
+            'sex' => null,
+            'confirmation_code' => base64_encode($data['email']),
             'password' => bcrypt($data['password']),
         ]);
+    }
+
+    /**
+     * Handle a registration request for the application.
+     *
+     * @param \Illuminate\Http\Request $request
+     * @return \Illuminate\Http\Response
+     */
+
+    public function register(Request $request)
+    {
+        $this->validator($request->all())->validate();
+        event(new Registered($user = $this->create($request->all())));
+        dispatch(new SendVerificationEmail($user));
+        return view('auth.verification');
+    }
+
+
+    public function verify($token)
+    {
+        $user = User::where('confirmation_code',$token)->first();
+        
+        if(empty($user) or $user == null or $user == ''){
+            return null;
+        }
+
+        $user->confirmed = 1;
+        if($user->save()){
+            return view('auth.verified',['user'=>$user]);
+        }
     }
 }

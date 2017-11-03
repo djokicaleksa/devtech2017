@@ -1,0 +1,1 @@
+Mail za verifikaciju poslat. Molimo vas da se ulogujete na mail koji ste uneli i verifikujete svoj nalog.

@@ -1,0 +1,1 @@
+Uspesno se verifikovali vas nalog. Ulogujte se na <a href="{{url('/')}}">link</a>
