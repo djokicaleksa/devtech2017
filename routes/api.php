@@ -26,4 +26,4 @@ Route::get('get-user/{card_id}', function($card_id){
 
 Route::get('/barcode/{barcode}', function($barcode){
 	return $barcode;
-})
+});
