@@ -46,7 +46,7 @@ class ApiController extends Controller
     public function recycle(Request $request)
     { 
 
-        $input = $request->input('data');
+        $input = $request->all();
 
         return response()->json([
                 'status'=> 200,
