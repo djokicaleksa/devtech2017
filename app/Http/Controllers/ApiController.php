@@ -19,12 +19,12 @@ class ApiController extends Controller
     {
     	$user = User::where('card_id', $card_id)->first();
 
-    	// if($user == null){
-    	// 	return response()->json([
-    	// 		'status' => 404,
-    	// 		'message' => 'Card ID unknown'
-    	// 	]);
-    	// }
+    	if($user == null){
+    		return response()->json([
+    			'status' => 404,
+    			'message' => 'Card ID unknown'
+    		]);
+    	}
 
     	return new UserResource($user);
     }
@@ -45,7 +45,6 @@ class ApiController extends Controller
 
     public function recycle(Request $request)
     {
-        return $_POST[];
     	$user = User::findOrFail($input['user_id']);
 
         if($user == null){
