@@ -43,14 +43,50 @@ class ApiController extends Controller
     	return new BarcodeResource($barcode);
     }
 
-    public function recycle(Request $request)
-    {
-        $input['user_id'] = $request->input('user_id');
-        $input['bin_id'] = $request->input('bin_id');
-        $input['token'] = $request->input('token');
-        $input['card_id'] = $request->input('card_id');
+    // public function recycle(Request $request)
+    // {
+    //     $input['user_id'] = $request->input('user_id');
+    //     $input['bin_id'] = $request->input('bin_id');
+    //     $input['token'] = $request->input('token');
+    //     $input['card_id'] = $request->input('card_id');
 
-    	$user = User::findOrFail($input['user_id']);
+    // 	$user = User::findOrFail($input['user_id']);
+
+    //     if($user == null){
+    //         return response()->json([
+    //             'status' => 404,
+    //             'message' => 'User unknown'
+    //         ]);
+    //     }
+
+    // 	$barcode = Barcode::find($input['barcode_id']);
+
+    //     if($barcode == null){
+    //         return response()->json([
+    //             'status' => 404,
+    //             'message' => 'Barcode unknown'
+    //         ]);
+    //     }
+
+    // 	$user->barcodes()->attach($input['barcode_id'], ['bin_id'=>$input['bin_id']]);
+    // 	$credit = $user->balance + ($barcode->material->price / 1000) * $barcode->weight;
+    // 	$user->update([
+    // 		'balance' => $credit 
+    // 		]);
+
+    //     event(new RecycledEvent($barcode->material->id, $barcode->material->getCount(), $barcode->material->percent()));
+
+    // 	return response()->json([
+    // 			'status'=> 200,
+    // 			'message' => 'Successfully recycled',
+    // 			'credit' => (string) $user->balance,
+    // 		]);
+    // }
+
+
+    public function recycle($token, $bin_id, $user_id, $barcode_id)
+    {
+        $user = User::findOrFail($user_id);
 
         if($user == null){
             return response()->json([
@@ -59,7 +95,7 @@ class ApiController extends Controller
             ]);
         }
 
-    	$barcode = Barcode::find($input['barcode_id']);
+        $barcode = Barcode::find($barcode_id);
 
         if($barcode == null){
             return response()->json([
@@ -68,19 +104,19 @@ class ApiController extends Controller
             ]);
         }
 
-    	$user->barcodes()->attach($input['barcode_id'], ['bin_id'=>$input['bin_id']]);
-    	$credit = $user->balance + ($barcode->material->price / 1000) * $barcode->weight;
-    	$user->update([
-    		'balance' => $credit 
-    		]);
+        $user->barcodes()->attach($barcode_id, ['bin_id'=>$bin_id]);
+        $credit = $user->balance + ($barcode->material->price / 1000) * $barcode->weight;
+        $user->update([
+            'balance' => $credit 
+            ]);
 
         event(new RecycledEvent($barcode->material->id, $barcode->material->getCount(), $barcode->material->percent()));
 
-    	return response()->json([
-    			'status'=> 200,
-    			'message' => 'Successfully recycled',
-    			'credit' => (string) $user->balance,
-    		]);
+        return response()->json([
+                'status'=> 200,
+                'message' => 'Successfully recycled',
+                'credit' => (string) $user->balance,
+            ]);
     }
 
     public function cardBlockStats()
