@@ -45,4 +45,14 @@ class User extends Authenticatable
     public function isUser(){
         return $this->role->id === 3;
     }
+
+    public function getFirstNameAttribute(){
+        $data = explode(' ', $this->name);
+        return $data[0];
+    }
+
+    public function getLastNameAttribute(){
+        $data = explode(' ', $this->name);
+        return $data[1];
+    }
 }
