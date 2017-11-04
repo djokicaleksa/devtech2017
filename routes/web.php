@@ -30,12 +30,14 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/verifyemail/{token}', 'Auth\RegisterController@verify');
 
 Route::middleware(['superadmin'])->group(function(){
-	// Route::prefix('dashboard')->group('');
-	Route::get('/superadmin', function(){
-		return "Superadmin";
+	Route::prefix('dashboard/')->group(function(){
+		Route::resource('bins', 'BinController');
+		Route::get('/', 'SuperadminController@index');
 	});
-
-	Route::get('/superadmin', 'SuperadminController@index');
+	
+	// Route::get('/superadmin', function(){
+	// 	return "Superadmin";
+	// });
 });
 
 Route::middleware(['admin'])->group(function(){

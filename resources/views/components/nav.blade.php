@@ -314,11 +314,11 @@
                     <ul id="sidebarnav">
                         <li class="nav-small-cap">PERSONAL</li>
 
-                        <li> <a class="has-arrow waves-effect waves-dark" href="index.php" aria-expanded="false"><i class="mdi mdi-gauge"></i><span class="hide-menu">Dashboard </span></a>
+                        <li> <a class="has-arrow waves-effect waves-dark" href="{{url('/dashboard')}}" aria-expanded="false"><i class="mdi mdi-gauge"></i><span class="hide-menu">Dashboard </span></a>
                         </li>
-                        <li> <a class="has-arrow waves-effect waves-dark" href="pages-blank.php" aria-expanded="false"><i class="mdi mdi-gauge"></i><span class="hide-menu">1</span></a>
+                        <li> <a class="has-arrow waves-effect waves-dark" href="{{url('/dashboard/bins')}}" aria-expanded="false"><i class="mdi mdi-gauge"></i><span class="hide-menu">Bins</span></a>
                         </li>
-                        <li> <a class="has-arrow waves-effect waves-dark" href="pages-blank.php" aria-expanded="false"><i class="mdi mdi-gauge"></i><span class="hide-menu">2 </span></a>
+                        <li> <a class="has-arrow waves-effect waves-dark" href="{{url('dashboard/materials')}}" aria-expanded="false"><i class="mdi mdi-gauge"></i><span class="hide-menu">Materials </span></a>
                         </li>
                         <li> <a class="has-arrow waves-effect waves-dark" href="pages-blank.php" aria-expanded="false"><i class="mdi mdi-gauge"></i><span class="hide-menu">3 </span></a>
                         </li>

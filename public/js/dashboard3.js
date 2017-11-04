@@ -50,14 +50,30 @@ $(function () {
     // Newsletter
     // ============================================================== 
     
+
+    var data2;
+    data2 = function () {
+            var temp = null;
+            $.ajax({
+                url: 'http://hack.dev/api/revenue-over-last-seven-days',
+                method: 'GET',
+                async:false,
+                success: function (data){
+                    temp = data;
+                },
+                error: function (error) {
+                    console.log(error);
+                }
+
+            });
+            return temp;
+        }();
+
+
     var chart = new Chartist.Line('.campaign2', {
           labels: [1, 2, 3, 4, 5, 6, 7, 8],
-          series: [
-            [0, 5, 6, 8, 25, 9, 8, 24]
-            , [0, 3, 1, 2, 8, 1, 5, 1]
-          ]}, {
-          low: 0,
-          high: 28,
+          series: data2 
+          }, {
           showArea: true,
           fullWidth: true,
           plugins: [
@@ -65,11 +81,9 @@ $(function () {
           ],
             axisY: {
             onlyInteger: true
-            , scaleMinSpace: 40    
+            , scaleMinSpace: 40   
             , offset: 20
-            , labelInterpolationFnc: function (value) {
-                return (value / 1) + 'k';
-            }
+            
         },
         });
 

@@ -14,7 +14,8 @@ class BinController extends Controller
      */
     public function index()
     {
-        //
+        $bins = Bin::paginate(20);
+        return view('bins.index', compact('bins'));
     }
 
     /**
@@ -24,7 +25,7 @@ class BinController extends Controller
      */
     public function create()
     {
-        //
+        return view('bins.create');
     }
 
     /**
@@ -80,6 +81,7 @@ class BinController extends Controller
      */
     public function destroy(Bin $bin)
     {
-        //
+        $bin->delete();
+        return redirect()->back()->withSuccessMessage('Bin successfully deleted!');
     }
 }

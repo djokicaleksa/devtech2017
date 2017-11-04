@@ -11,6 +11,7 @@ use App\Events\RecycledEvent;
 use App\Material;
 use DB;
 use App\Bin;
+use Carbon\Carbon;
 
 class ApiController extends Controller
 {
@@ -118,11 +119,24 @@ class ApiController extends Controller
         $data = [];
         foreach ($bins as $bin) {
             array_push($data, [
-                        'location_latitude' => $bin->lat,
-                        'location_longitude' => $bin->long,
+                        'lat' => (float) $bin->lat,
+                        'lng' => (float) $bin->long,
                     ]);
         }
 
         return response()->json($data);
+    }
+
+    public function revenueOverLastSevenDays()
+    {   
+        $materials = Material::all();
+        $data = [];
+        $i = 0;
+        foreach ($materials as $material) {
+            $data[$i] = $material->revenueOverLastSevenDays();
+            $i++;
+        }
+
+        return $data;
     }
 }
