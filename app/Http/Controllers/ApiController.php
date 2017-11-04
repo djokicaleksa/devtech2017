@@ -7,6 +7,10 @@ use App\User;
 use App\Barcode;
 use App\Http\Resources\User as UserResource;
 use App\Http\Resources\Barcode as BarcodeResource;
+use App\Events\RecycledEvent;
+use App\Material;
+use DB;
+use App\Bin;
 
 class ApiController extends Controller
 {
@@ -49,12 +53,76 @@ class ApiController extends Controller
     		'balance' => $credit 
     		]);
 
-        
-        event()
+        event(new RecycledEvent($barcode->material->id, $barcode->material->getCount(), $barcode->material->percent()));
+
     	return response()->json([
     			'status'=> 200,
     			'message' => 'Successfully recycled',
     			'credit' => (string) $user->balance,
     		]);
+    }
+
+    public function cardBlockStats()
+    {
+        $data = [];
+        $i = 0;
+        $materials = Material::all();
+        foreach ($materials as $material) {
+            $data[$i]['material_id'] = $material->id;
+            $data[$i]['number'] = $material->getCount();
+            $data[$i]['percent'] = $material->percent();
+            $data[$i]['css_class'] = "css-bar-" . $data[$i]['percent'];
+            $i++;
+        }
+
+        return response()->json($data);
+    }
+
+    public function barChartStats(){
+        $mon_alu = DB::table('barcode_user')->join('barcodes', 'barcode_user.barcode_id', '=', 'barcodes.id')->whereRaw('DAYNAME(barcode_user.created_at) = "Monday"')->where('barcodes.material_id', 1)->count();
+        $tue_alu = DB::table('barcode_user')->join('barcodes', 'barcode_user.barcode_id', '=', 'barcodes.id')->whereRaw('DAYNAME(barcode_user.created_at) = "Tuesday"')->where('barcodes.material_id', 1)->count();
+        $wed_alu = DB::table('barcode_user')->join('barcodes', 'barcode_user.barcode_id', '=', 'barcodes.id')->whereRaw('DAYNAME(barcode_user.created_at) = "Wednesday"')->where('barcodes.material_id', 1)->count();
+        $thu_alu = DB::table('barcode_user')->join('barcodes', 'barcode_user.barcode_id', '=', 'barcodes.id')->whereRaw('DAYNAME(barcode_user.created_at) = "Thursday"')->count();
+        $fri_alu = DB::table('barcode_user')->join('barcodes', 'barcode_user.barcode_id', '=', 'barcodes.id')->whereRaw('DAYNAME(barcode_user.created_at) = "Friday"')->where('barcodes.material_id', 1)->count();
+        $sat_alu = DB::table('barcode_user')->join('barcodes', 'barcode_user.barcode_id', '=', 'barcodes.id')->whereRaw('DAYNAME(barcode_user.created_at) = "Saturday"')->where('barcodes.material_id', 1)->count();
+        $sun_alu = DB::table('barcode_user')->join('barcodes', 'barcode_user.barcode_id', '=', 'barcodes.id')->whereRaw('DAYNAME(barcode_user.created_at) = "Sunday"')->where('barcodes.material_id', 1)->count();
+
+
+
+
+        $mon_plastic = DB::table('barcode_user')->join('barcodes', 'barcode_user.barcode_id', '=', 'barcodes.id')->whereRaw('DAYNAME(barcode_user.created_at) = "Monday"')->where('barcodes.material_id', 2)->count();
+        $tue_plastic = DB::table('barcode_user')->join('barcodes', 'barcode_user.barcode_id', '=', 'barcodes.id')->whereRaw('DAYNAME(barcode_user.created_at) = "Tuesday"')->where('barcodes.material_id', 2)->count();
+        $wed_plastic = DB::table('barcode_user')->join('barcodes', 'barcode_user.barcode_id', '=', 'barcodes.id')->whereRaw('DAYNAME(barcode_user.created_at) = "Wednesday"')->where('barcodes.material_id', 2)->count();
+        $thu_plastic = DB::table('barcode_user')->join('barcodes', 'barcode_user.barcode_id', '=', 'barcodes.id')->whereRaw('DAYNAME(barcode_user.created_at) = "Thursday"')->count();
+        $fri_plastic = DB::table('barcode_user')->join('barcodes', 'barcode_user.barcode_id', '=', 'barcodes.id')->whereRaw('DAYNAME(barcode_user.created_at) = "Friday"')->where('barcodes.material_id', 2)->count();
+        $sat_plastic = DB::table('barcode_user')->join('barcodes', 'barcode_user.barcode_id', '=', 'barcodes.id')->whereRaw('DAYNAME(barcode_user.created_at) = "Saturday"')->where('barcodes.material_id', 2)->count();
+        $sun_plastic = DB::table('barcode_user')->join('barcodes', 'barcode_user.barcode_id', '=', 'barcodes.id')->whereRaw('DAYNAME(barcode_user.created_at) = "Sunday"')->where('barcodes.material_id', 2)->count();
+
+
+        $mon_glass = DB::table('barcode_user')->join('barcodes', 'barcode_user.barcode_id', '=', 'barcodes.id')->whereRaw('DAYNAME(barcode_user.created_at) = "Monday"')->where('barcodes.material_id', 3)->count();
+        $tue_glass = DB::table('barcode_user')->join('barcodes', 'barcode_user.barcode_id', '=', 'barcodes.id')->whereRaw('DAYNAME(barcode_user.created_at) = "Tuesday"')->where('barcodes.material_id', 3)->count();
+        $wed_glass = DB::table('barcode_user')->join('barcodes', 'barcode_user.barcode_id', '=', 'barcodes.id')->whereRaw('DAYNAME(barcode_user.created_at) = "Wednesday"')->where('barcodes.material_id', 3)->count();
+        $thu_glass = DB::table('barcode_user')->join('barcodes', 'barcode_user.barcode_id', '=', 'barcodes.id')->whereRaw('DAYNAME(barcode_user.created_at) = "Thursday"')->count();
+        $fri_glass = DB::table('barcode_user')->join('barcodes', 'barcode_user.barcode_id', '=', 'barcodes.id')->whereRaw('DAYNAME(barcode_user.created_at) = "Friday"')->where('barcodes.material_id', 3)->count();
+        $sat_glass = DB::table('barcode_user')->join('barcodes', 'barcode_user.barcode_id', '=', 'barcodes.id')->whereRaw('DAYNAME(barcode_user.created_at) = "Saturday"')->where('barcodes.material_id', 3)->count();
+        $sun_glass = DB::table('barcode_user')->join('barcodes', 'barcode_user.barcode_id', '=', 'barcodes.id')->whereRaw('DAYNAME(barcode_user.created_at) = "Sunday"')->where('barcodes.material_id', 3)->count();
+        
+        $data[0] = [$mon_alu, $tue_alu, $wed_alu, $thu_alu, $fri_alu, $sat_alu, $sun_alu];
+        $data[1] = [$mon_plastic, $tue_plastic, $wed_plastic, $thu_plastic, $fri_plastic, $sat_plastic, $sun_plastic];
+        $data[2] = [$mon_glass, $tue_glass, $wed_glass, $thu_glass, $fri_glass, $sat_glass, $sun_glass];
+        return $data;
+    }
+
+    public function mapFeed(){
+        $bins = Bin::all();
+        $data = [];
+        foreach ($bins as $bin) {
+            array_push($data, [
+                        'location_latitude' => $bin->lat,
+                        'location_longitude' => $bin->long,
+                    ]);
+        }
+
+        return response()->json($data);
     }
 }

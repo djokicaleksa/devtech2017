@@ -81,6 +81,8 @@
     <!-- ============================================================== -->
     <script src="{{url('assets/plugins/styleswitcher/jQuery.style.switcher.js')}}"></script>
     <script type="text/javascript" src="{{('js/app.js')}}"></script>
+<!--     <script src="http://maps.googleapis.com/maps/api/js?key=AIzaSyBdSz4HAaXNiLlQD7ooCNtk4p8ypesR36E&callback=collapseMap"></script>
+    <script type="text/javascript" src="{{('js/map.js')}}"></script> -->
 </body>
 
 </html>

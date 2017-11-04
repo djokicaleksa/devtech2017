@@ -9,12 +9,29 @@ $(function () {
     // ============================================================== 
     // Sales overview
     // ============================================================== 
+    data = function () {
+            var temp = null;
+            $.ajax({
+                url: 'http://hack.dev/api/bar-chart-stats',
+                method: 'GET',
+                async:false,
+                data: {
+                    route:  window.location.pathname,
+                },
+                success: function (data){
+                    temp = data;
+                },
+                error: function (error) {
+                    console.log(error);
+                }
+
+            });
+            return temp;
+        }();
+
     var chart2 = new Chartist.Bar('.amp-pxl', {
-          labels: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
-          series: [
-            [9, 5, 3, 7, 5, 10, 3],
-            [6, 3, 9, 5, 4, 6, 4]
-          ]
+          labels: ['Mon1', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
+          series: data
         }, {
           axisX: {
             // On the x-axis start means top and end means bottom

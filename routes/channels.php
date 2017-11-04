@@ -1,5 +1,5 @@
 <?php
-
+use Illuminate\Support\Facade\Auth;
 /*
 |--------------------------------------------------------------------------
 | Broadcast Channels

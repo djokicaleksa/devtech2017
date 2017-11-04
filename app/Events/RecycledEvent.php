@@ -17,6 +17,7 @@ class RecycledEvent implements ShouldBroadcast
     public $material_id;
     public $number;
     public $percent;
+    public $css_class;
 
     /**
      * Create a new event instance.
@@ -27,7 +28,8 @@ class RecycledEvent implements ShouldBroadcast
     {
         $this->material_id = $material_id;
         $this->number = $number;
-        $this->percent = $percent;
+        $this->percent = $percent . '%';
+        $this->css_class = 'css-bar-' . $percent;
     }
 
     /**
@@ -37,6 +39,6 @@ class RecycledEvent implements ShouldBroadcast
      */
     public function broadcastOn()
     {
-        return new PrivateChannel('update-recycled');
+        return new Channel('update-recycled');
     }
 }

@@ -9,12 +9,27 @@ $(function () {
     // ============================================================== 
     // Sales overview
     // ============================================================== 
+    var data;
+    data = function () {
+            var temp = null;
+            $.ajax({
+                url: 'http://hack.dev/api/bar-chart-stats',
+                method: 'GET',
+                async:false,
+                success: function (data){
+                    temp = data;
+                },
+                error: function (error) {
+                    console.log(error);
+                }
+
+            });
+            return temp;
+        }();
+
     var chart2 = new Chartist.Bar('.amp-pxl', {
-          labels: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'],
-          series: [
-            [9, 5, 3, 7, 5, 10],
-            [6, 3, 9, 5, 4, 6]
-          ]
+          labels: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
+          series: data
         }, {
           axisX: {
             // On the x-axis start means top and end means bottom
@@ -25,8 +40,7 @@ $(function () {
             // On the y-axis start means left and end means right
             position: 'start'
           },
-        high:'12',
-        low: '0',
+
         plugins: [
             Chartist.plugins.tooltip()
         ]
