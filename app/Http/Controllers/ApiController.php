@@ -47,7 +47,23 @@ class ApiController extends Controller
     {
     	$input = $request->all();
     	$user = User::findOrFail($input['user_id']);
+
+        if($user == null){
+            return response()->json([
+                'status' => 404,
+                'message' => 'User unknown'
+            ]);
+        }
+
     	$barcode = Barcode::find($input['barcode_id']);
+
+        if($barcode == null){
+            return response()->json([
+                'status' => 404,
+                'message' => 'Barcode unknown'
+            ]);
+        }
+
     	$user->barcodes()->attach($input['barcode_id'], ['bin_id'=>$input['bin_id']]);
     	$credit = $user->balance + ($barcode->material->price / 1000) * $barcode->weight;
     	$user->update([
