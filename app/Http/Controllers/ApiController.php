@@ -13,7 +13,7 @@ class ApiController extends Controller
     public function getUser($token, $bin_id, $card_id)
     {
     	$user = User::where('card_id', $card_id)->first();
-    	
+
     	// if($user == null){
     	// 	return response()->json([
     	// 		'status' => 404,
@@ -51,6 +51,7 @@ class ApiController extends Controller
     	return response()->json([
     			'status'=> 200,
     			'message' => 'Successfully recycled'
+    			'credit' => $user->balance,
     		]);
     }
 }
