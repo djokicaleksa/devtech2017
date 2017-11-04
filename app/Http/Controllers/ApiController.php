@@ -46,12 +46,11 @@ class ApiController extends Controller
     public function recycle(Request $request)
     { 
 
-        $input=$reqest->reqest->all();
+        $input = $request->input('data');
 
         return response()->json([
                 'status'=> 200,
                 'message' => 'Successfully recycled',
-                'credit' => (string) $user->balance,
                 'input' => $input
             ]);
 
