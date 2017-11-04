@@ -50,8 +50,8 @@ class ApiController extends Controller
     		]);
     	return response()->json([
     			'status'=> 200,
-    			'message' => 'Successfully recycled'
-    			'credit' => $user->balance,
+    			'message' => 'Successfully recycled',
+    			'credit' => (string) $user->balance,
     		]);
     }
 }

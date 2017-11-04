@@ -34,4 +34,15 @@ class User extends Authenticatable
     public function barcodes(){
         return $this->belongsToMany('App\Barcode')->withPivot('bin_id')->withTimeStamps();
     }
+    public function isSuperadmin(){
+        return $this->role->id === 1;
+    }
+
+    public function isAdmin(){
+        return $this->role->id === 2;
+    }
+
+    public function isUser(){
+        return $this->role->id === 3;
+    }
 }

@@ -17,7 +17,7 @@ class User extends Resource
         return [
             'id' => $this->id,
             'name' => $this->name,
-            'credit' => $this->balance
+            'credit' => (string) $this->balance
         ];
     }
 }

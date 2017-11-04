@@ -26,7 +26,25 @@ Route::get('fireEvent', function(){
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
-
-
-
 Route::get('/verifyemail/{token}', 'Auth\RegisterController@verify');
+
+Route::middleware(['superadmin'])->group(function(){
+	// Route::prefix('dashboard')->group('');
+	Route::get('/superadmin', function(){
+		return "Superadmin";
+	});
+
+	Route::get('/superadmin', 'SuperadminController@index');
+});
+
+Route::middleware(['admin'])->group(function(){
+	Route::get('/admin', function(){
+		return "Admin";
+	});
+});
+
+Route::middleware(['user'])->group(function(){
+	Route::get('/user', function(){
+		return "user";
+	});
+});
