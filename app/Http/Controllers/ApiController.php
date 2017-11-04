@@ -10,21 +10,21 @@ use App\Http\Resources\Barcode as BarcodeResource;
 
 class ApiController extends Controller
 {
-    public function getUser($card_id)
+    public function getUser($token, $bin_id, $card_id)
     {
     	$user = User::where('card_id', $card_id)->first();
-
-    	if($user == null){
-    		return response()->json([
-    			'status' => 404,
-    			'message' => 'Card ID unknown'
-    		]);
-    	}
+    	
+    	// if($user == null){
+    	// 	return response()->json([
+    	// 		'status' => 404,
+    	// 		'message' => 'Card ID unknown'
+    	// 	]);
+    	// }
 
     	return new UserResource($user);
     }
 
-    public function getProduct($barcode, $token, $bin_id)
+    public function getProduct($token, $bin_id, $barcode)
     {
     	$barcode = Barcode::where('barcode', $barcode)->first();
     	

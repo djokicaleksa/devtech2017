@@ -21,9 +21,9 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 
 
 Route::middleware(['apiauth'])->group(function(){
-	Route::get('/get-user/{token}/{card_id}/{bin_id}', 'ApiController@getUser');
+	Route::get('/get-user/{token}/{bin_id}/{card_id}', 'ApiController@getUser');
 
-	Route::get('/barcode/{token}/{barcode}/{bin_id}', 'ApiController@getProduct');
-	
+	Route::get('/barcode/{token}/{bin_id}/{barcode}', 'ApiController@getProduct');
+
 	Route::post('/recycle', 'ApiController@recycle');
 });
