@@ -24,7 +24,7 @@ class ApiController extends Controller
     	return new UserResource($user);
     }
 
-    public function getProduct($barcode)
+    public function getProduct($barcode, $token, $bin_id)
     {
     	$barcode = Barcode::where('barcode', $barcode)->first();
     	
