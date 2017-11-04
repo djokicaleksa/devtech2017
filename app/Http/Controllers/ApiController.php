@@ -42,8 +42,12 @@ class ApiController extends Controller
     {
     	$input = $request->all();
     	$user = User::findOrFail($input['user_id']);
+    	$barcode = Barcode::find($input['barcode_id']);
     	$user->barcodes()->attach($input['barcode_id'], ['bin_id'=>$input['bin_id']]);
-
+    	$credit = $user->balance + ($barcode->material->price / 1000) * $barcode->weight;
+    	$user->update([
+    		'balance' => $credit 
+    		]);
     	return response()->json([
     			'status'=> 200,
     			'message' => 'Successfully recycled'
