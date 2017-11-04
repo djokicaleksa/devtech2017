@@ -13,7 +13,7 @@ $(function () {
     data = function () {
             var temp = null;
             $.ajax({
-                url: 'http://hack.dev/api/bar-chart-stats',
+                url: 'api/bar-chart-stats',
                 method: 'GET',
                 async:false,
                 success: function (data){
@@ -55,7 +55,7 @@ $(function () {
     data2 = function () {
             var temp = null;
             $.ajax({
-                url: 'http://hack.dev/api/revenue-over-last-seven-days',
+                url: 'api/revenue-over-last-seven-days',
                 method: 'GET',
                 async:false,
                 success: function (data){

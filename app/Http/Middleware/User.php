@@ -16,6 +16,10 @@ class User
      */
     public function handle($request, Closure $next)
     {
+        if(!Auth::check()){
+            return redirect('/');
+        }
+
         if(Auth::user()->isSuperadmin() or Auth::user()->isAdmin() or Auth::user()->isUser()){
             return $next($request);    
         }
