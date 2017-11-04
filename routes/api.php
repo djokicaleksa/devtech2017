@@ -2,6 +2,7 @@
 
 use Illuminate\Http\Request;
 use App\User;
+use App\Barcode;
 use App\Http\Resources\User as UserResource;
 /*
 |--------------------------------------------------------------------------
@@ -18,12 +19,9 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::get('get-user/{card_id}', function($card_id){
-	$user = User::where('card_id', $card_id)->first();
-	// return $user;
-	return new UserResource($user);
-});
+Route::get('/get-user/{card_id}', 'ApiController@getUser');
 
-Route::get('/barcode/{barcode}', function($barcode){
-	return $barcode;
-});
+Route::get('/barcode/{barcode}', 'ApiController@getProduct');
+
+Route::post('/recycle', 'ApiController@recycle');
+

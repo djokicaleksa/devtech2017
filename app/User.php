@@ -30,4 +30,8 @@ class User extends Authenticatable
     public function role(){
         return $this->belongsTo('App\Role');
     }
+
+    public function barcodes(){
+        return $this->belongsToMany('App\Barcode')->withPivot('bin_id')->withTimeStamps();
+    }
 }
