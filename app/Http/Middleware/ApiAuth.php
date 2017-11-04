@@ -19,7 +19,7 @@ class ApiAuth
 
         if($request->isMethod('post')){
 
-            $bin = Bin::findOrFail($request->bin_id);
+            $bin = Bin::find($request->bin_id);
             if($bin == null){
                 return response()->json(['message'=>'FuckOff']);
             }
@@ -31,7 +31,7 @@ class ApiAuth
             return response()->json(['message'=>'FuckOff']);
         }else{
             
-            $bin = Bin::findOrFail($request->route('bin_id'));
+            $bin = Bin::find($request->route('bin_id'));
             if($bin == null){
                 return response()->json(['message'=>'FuckOff']);
             }
