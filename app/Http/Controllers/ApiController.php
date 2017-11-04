@@ -45,8 +45,7 @@ class ApiController extends Controller
 
     public function recycle(Request $request)
     {
-    	return $request->get();
-        return $input;
+        return $_POST[];
     	$user = User::findOrFail($input['user_id']);
 
         if($user == null){
