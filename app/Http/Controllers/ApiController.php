@@ -48,12 +48,6 @@ class ApiController extends Controller
 
         $input = $request->all();
 
-        return response()->json([
-                'status'=> 200,
-                'message' => 'Successfully recycled',
-                'input' => $input
-            ]);
-
         //return json_encode($input,true);
 
         // $input['user_id'] = $request->user_id;
