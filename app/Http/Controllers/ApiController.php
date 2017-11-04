@@ -44,11 +44,14 @@ class ApiController extends Controller
     }
 
     public function recycle(Request $request)
-    {
-        $input['user_id'] = $request->user_id;
-        $input['bin_id'] = $request->bin_id;
-        $input['token'] = $request->token;
-        $input['barcode_id'] = $request->barcode_id;
+    { 
+
+        $input=$reqest->reqest->all();
+        return json_encode($input,true);
+        // $input['user_id'] = $request->user_id;
+        // $input['bin_id'] = $request->bin_id;
+        // $input['token'] = $request->token;
+        // $input['barcode_id'] = $request->barcode_id;
 
     	$user = User::findOrFail($input['user_id']);
 
