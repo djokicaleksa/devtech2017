@@ -48,6 +48,9 @@ class ApiController extends Controller
     	$user->update([
     		'balance' => $credit 
     		]);
+
+        
+        event()
     	return response()->json([
     			'status'=> 200,
     			'message' => 'Successfully recycled',

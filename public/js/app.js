@@ -981,6 +981,12 @@ __webpack_require__(11);
 
 window.Vue = __webpack_require__(37);
 
+$.ajaxSetup({
+    headers: {
+        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+    }
+});
+
 /**
  * Next, we will create a fresh Vue application instance and attach it to
  * the page. Then, you may begin adding components to this application
@@ -990,12 +996,13 @@ window.Vue = __webpack_require__(37);
 Vue.component('example', __webpack_require__(40));
 
 var app = new Vue({
-  el: '#app',
-  created: function created() {
-    Echo.channel('channelDemo').listen('eventTrigger', function (e) {
-      alert('event has been triggered');
-    });
-  }
+    el: '#app',
+    created: function created() {
+        Echo.channel('channelDemoEvent').listen('eventTrigger', function (e) {
+            alert('event has been triggered');
+        });
+        alert(1);
+    }
 });
 
 /***/ }),

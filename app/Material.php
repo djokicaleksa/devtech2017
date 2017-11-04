@@ -9,4 +9,8 @@ class Material extends Model
     protected $fillable = [
     	'name', 'price'
     ];
+
+    public function barcodes(){
+    	return $this->belongsToMany('App\Barcode');
+    }
 }

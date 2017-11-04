@@ -23,6 +23,7 @@ Route::get('/alertBox', function(){
 Route::get('fireEvent', function(){
 	event(new eventTrigger());
 });
+
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');

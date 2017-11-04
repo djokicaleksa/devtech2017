@@ -27,3 +27,4 @@ Route::middleware(['apiauth'])->group(function(){
 
 	Route::post('/recycle', 'ApiController@recycle');
 });
+

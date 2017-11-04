@@ -13,4 +13,8 @@ class Barcode extends Model
     public function material(){
     	return $this->belongsTo('App\Material');
     }
+
+    public function users(){
+    	return $this->belongsToMany('App\User');
+    }
 }

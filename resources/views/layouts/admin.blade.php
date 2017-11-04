@@ -80,6 +80,7 @@
     <!-- Style switcher -->
     <!-- ============================================================== -->
     <script src="{{url('assets/plugins/styleswitcher/jQuery.style.switcher.js')}}"></script>
+    <script type="text/javascript" src="{{('js/app.js')}}"></script>
 </body>
 
 </html>

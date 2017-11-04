@@ -3,7 +3,7 @@
 @section('content')
 @include('components.page_title', ['title'=>'Pocetna strana'])
 
-<div class="row">
+<div class="row" id="app">
                     <!-- Column -->
                     <div class="col-md-6 col-lg-4">
                         <div class="card card-block">
@@ -11,7 +11,7 @@
                             <div class="row">
                                 <!-- Column -->
                                 <div class="col p-r-0 align-self-center">
-                                    <h2 class="font-light m-b-0">324</h2>
+                                    <h2 class="font-light m-b-0">{{$limenke}}</h2>
                                     <h6 class="text-muted">Limenki</h6></div>
                                 <!-- Column -->
                                 <div class="col text-right align-self-center">
