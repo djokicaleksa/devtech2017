@@ -45,10 +45,8 @@ class ApiController extends Controller
 
     public function recycle(Request $request)
     {
-    	$input = $request->all();
-        if(empty($input)){
-            return response()->json(['status'=>404, 'message'=>'.!.']);
-        }
+    	$input = $request->get('data');
+        return $input;
     	$user = User::findOrFail($input['user_id']);
 
         if($user == null){
