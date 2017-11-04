@@ -25,8 +25,7 @@ Route::middleware(['apiauth'])->group(function(){
 
 	Route::get('/barcode/{token}/{bin_id}/{barcode}', 'ApiController@getProduct');
 
-	// Route::post('recycle', 'ApiController@recycle');
-	Route::post('recycle/{token}{bin_id}/{user_id}{barcode_id}', 'ApiController@recycle');
+	Route::post('recycle', 'ApiController@recycle');
 });
 
 Route::get('card-block-stats', 'ApiController@cardBlockStats');
