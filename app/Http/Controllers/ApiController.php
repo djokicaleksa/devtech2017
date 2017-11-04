@@ -47,7 +47,16 @@ class ApiController extends Controller
     { 
 
         $input=$reqest->reqest->all();
-        return json_encode($input,true);
+
+        return response()->json([
+                'status'=> 200,
+                'message' => 'Successfully recycled',
+                'credit' => (string) $user->balance,
+                'input' => $input
+            ]);
+
+        //return json_encode($input,true);
+
         // $input['user_id'] = $request->user_id;
         // $input['bin_id'] = $request->bin_id;
         // $input['token'] = $request->token;
