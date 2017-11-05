@@ -158,4 +158,18 @@ class ApiController extends Controller
 
         return $data;
     }
+
+    public function kilogramsOverLastSevenDays()
+    {
+        $materials = Material::all();
+        $data = [];
+        $i = 0;
+        foreach ($materials as $material) {
+            $data[$i] = $material->getKilograms();
+            $i++;
+        }
+
+        return $data;
+    }
+
 }

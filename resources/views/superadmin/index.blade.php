@@ -12,7 +12,7 @@
                                 <!-- Column -->
                                 <div class="col p-r-0 align-self-center">
                                     <h2 class="font-light m-b-0" id="cans" >@{{cans_number}}</h2>
-                                    <h6 class="text-muted">Limenki</h6></div>
+                                    <h6 class="text-muted">Cans</h6></div>
                                 <!-- Column -->
                                 <div class="col text-right align-self-center">
                                     <div v-bind:class="cans_class" 
@@ -29,7 +29,7 @@
                                 <!-- Column -->
                                 <div class="col p-r-0 align-self-center">
                                     <h2 class="font-light m-b-0">@{{pet_number}}</h2>
-                                    <h6 class="text-muted">Plasticnih flasa</h6></div>
+                                    <h6 class="text-muted">Plastic</h6></div>
                                 <!-- Column -->
                                 <div class="col text-right align-self-center">
                                     <div v-bind:class="pet_class" 
@@ -46,7 +46,7 @@
                                 <!-- Column -->
                                 <div class="col p-r-0 align-self-center">
                                     <h2 class="font-light m-b-0">@{{glass_number}}</h2>
-                                    <h6 class="text-muted">Staklenih flasa</h6></div>
+                                    <h6 class="text-muted">Glass</h6></div>
                                 <!-- Column -->
                                 <div class="col text-right ">
                                     <div v-bind:class="glass_class" 
@@ -101,8 +101,8 @@
                     <div class="col-lg-4 col-md-12">
                         <div class="card">
                             <div class="card-block">
-                                <h4 class="card-title">Collected in [kg]</h4>
-                                <h6 class="card-subtitle">Weight of all collected materials</h6>
+                                <h4 class="card-title">Value of recycled materials</h4>
+                                <h6 class="card-subtitle">Value of recycled materials</h6>
                                 <div class="campaign2 ct-charts" style="height: 300px;"></div>
                                 <div class="text-center">
                                     <ul class="list-inline">
@@ -121,17 +121,17 @@
                     <div class="col-lg-4 col-md-12">
                         <div class="card">
                             <div class="card-block">
-                                <h4 class="card-title">Current Visitors</h4>
-                                <h6 class="card-subtitle">Different Devices Used to Visit</h6>
+                                <h4 class="card-title">Collected in [kg]</h4>
+                                <h6 class="card-subtitle">Weight of all collected materials</h6>
                                 <div id="usa" style="height: 300px"></div>
                                 <div class="text-center">
                                     <ul class="list-inline">
                                         <li>
-                                            <h6 class="text-success"><i class="fa fa-circle font-10 m-r-10 "></i>Valley</h6> </li>
+                                            <h6 class="text-muted text-danger"><i class="fa fa-circle font-10 m-r-10"></i>Aluminium</h6> </li>
                                         <li>
-                                            <h6 class="text-info"><i class="fa fa-circle font-10 m-r-10"></i>Newyork</h6> </li>
+                                            <h6 class="text-muted text-success"><i class="fa fa-circle font-10 m-r-10 "></i>Plastic</h6> </li>    
                                         <li>
-                                            <h6 class="text-danger"><i class="fa fa-circle font-10 m-r-10"></i>Kansas</h6> </li>
+                                            <h6 class="text-muted text-warning"><i class="fa fa-circle font-10 m-r-10 "></i>Glass</h6> </li>
                                     </ul>
                                 </div>
                             </div>

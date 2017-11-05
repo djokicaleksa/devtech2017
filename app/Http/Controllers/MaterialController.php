@@ -14,7 +14,8 @@ class MaterialController extends Controller
      */
     public function index()
     {
-        //
+        $materials = Material::paginate(20);
+        return view('materials.index', compact('materials'));
     }
 
     /**
@@ -24,7 +25,7 @@ class MaterialController extends Controller
      */
     public function create()
     {
-        //
+        return view('materials.create');
     }
 
     /**
@@ -35,7 +36,8 @@ class MaterialController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $material = Material::create($request->all());
+        return redirect('dashboard/materials');
     }
 
     /**

@@ -36,7 +36,8 @@ class BinController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $bin = Bin::create($request->all());
+        return redirect('/dashboard/bins');
     }
 
     /**

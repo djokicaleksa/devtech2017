@@ -1,69 +1,166 @@
-@extends('layouts.app')
+<!DOCTYPE html>
+<html dir="ltr" lang="en-US">
+<head>
 
-@section('content')
-<div class="container">
-    <div class="row">
-        <div class="col-md-8 col-md-offset-2">
-            <div class="panel panel-default">
-                <div class="panel-heading">Login</div>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <meta name="author" content="SemiColonWeb" />
+    @include('components.favicon')
 
-                <div class="panel-body">
-                    <form class="form-horizontal" method="POST" action="{{ route('login') }}">
-                        {{ csrf_field() }}
+    <!-- Stylesheets
+    ============================================= -->
+    <link href="http://fonts.googleapis.com/css?family=Lato:300,400,400italic,600,700|Raleway:300,400,500,600,700|Crete+Round:400italic" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" href="{{url('css/bootstrap.css')}}" type="text/css" />
+    <link rel="stylesheet" href="{{url('css/style/style.css')}}" type="text/css" />
+    <link rel="stylesheet" href="{{url('css/dark.css')}}" type="text/css" />
+    <link rel="stylesheet" href="{{url('css/font-icons.css')}}" type="text/css" />
+    <link rel="stylesheet" href="{{url('css/animate.css')}}" type="text/css" />
+    <link rel="stylesheet" href="{{url('css/magnific-popup.css')}}" type="text/css" />
 
-                        <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
-                            <label for="email" class="col-md-4 control-label">E-Mail Address</label>
+    <link rel="stylesheet" href="{{url('css/responsive.css')}}" type="text/css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-                            <div class="col-md-6">
-                                <input id="email" type="email" class="form-control" name="email" value="{{ old('email') }}" required autofocus>
+    <!-- Document Title
+    ============================================= -->
+    <title>Login - Layout 3 | Canvas</title>
 
-                                @if ($errors->has('email'))
-                                    <span class="help-block">
-                                        <strong>{{ $errors->first('email') }}</strong>
-                                    </span>
-                                @endif
-                            </div>
-                        </div>
+</head>
 
-                        <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
-                            <label for="password" class="col-md-4 control-label">Password</label>
+<body class="stretched">
 
-                            <div class="col-md-6">
-                                <input id="password" type="password" class="form-control" name="password" required>
+    <!-- Document Wrapper
+    ============================================= -->
+    <div id="wrapper" class="clearfix">
 
-                                @if ($errors->has('password'))
-                                    <span class="help-block">
-                                        <strong>{{ $errors->first('password') }}</strong>
-                                    </span>
-                                @endif
-                            </div>
-                        </div>
+        @include('components.front_nav')
 
-                        <div class="form-group">
-                            <div class="col-md-6 col-md-offset-4">
-                                <div class="checkbox">
-                                    <label>
-                                        <input type="checkbox" name="remember" {{ old('remember') ? 'checked' : '' }}> Remember Me
-                                    </label>
-                                </div>
-                            </div>
-                        </div>
+        <!-- Page Title
+        ============================================= -->
+        <section id="page-title">
 
-                        <div class="form-group">
-                            <div class="col-md-8 col-md-offset-4">
-                                <button type="submit" class="btn btn-primary">
-                                    Login
-                                </button>
-
-                                <a class="btn btn-link" href="{{ route('password.request') }}">
-                                    Forgot Your Password?
-                                </a>
-                            </div>
-                        </div>
-                    </form>
-                </div>
+            <div class="container clearfix">
+                <h1>My Account</h1>
+                <ol class="breadcrumb">
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">Pages</a></li>
+                    <li class="active">Login</li>
+                </ol>
             </div>
-        </div>
-    </div>
-</div>
-@endsection
+
+        </section><!-- #page-title end -->
+
+        <!-- Content
+        ============================================= -->
+        <section id="content">
+
+            <div class="content-wrap">
+
+                <div class="container clearfix">
+
+                    <div class="accordion accordion-lg divcenter nobottommargin clearfix" style="max-width: 550px;">
+
+                        <div class="acctitle"><i class="acc-closed icon-lock3"></i><i class="acc-open icon-unlock"></i>Login to your Account</div>
+                        <div class="acc_content clearfix">
+                            <form id="login-form" name="login-form" class="nobottommargin" method="POST" action="{{ route('login') }}">
+                                {{ csrf_field() }}
+                                <div class="col_full">
+                                    <label for="login-form-username">Email:</label>
+                                    <input type="text" id="login-form-username" name="email" value="{{old('email')}}" class="form-control" />
+                                    
+                                    <!-- @if ($errors->has('email'))
+                                        <span class="help-block">
+                                            <strong>{{ $errors->first('email') }}</strong>
+                                        </span>
+                                    @endif -->
+                                </div>
+
+                                <div class="col_full">
+                                    <label for="login-form-password">Password:</label>
+                                    <input type="password" id="login-form-password" name="password" value="" class="form-control" />
+                                    @if ($errors->has('password'))
+                                        <span class="help-block">
+                                            <strong>{{ $errors->first('password') }}</strong>
+                                        </span>
+                                    @endif
+                                </div>
+
+                                <div class="col_full nobottommargin">
+                                    <button class="button button-3d button-black nomargin" id="login-form-submit" name="login-form-submit" value="login">Login</button>
+                                    <a href="#" class="fright">Forgot Password?</a>
+                                </div>
+                            </form>
+                        </div>
+
+                        <div class="acctitle"><i class="acc-closed icon-user4"></i><i class="acc-open icon-ok-sign"></i>New Signup? Register for an Account</div>
+                        <div class="acc_content clearfix">
+                            {!! Form::open(['route' => 'register', 'class' => 'nobottommargin', 'role' => 'form', 'method' => 'POST'] ) !!}
+                                <div class="col_full">
+                                    <label for="register-form-name">Name:</label>
+                                    <input type="text" id="register-form-name" name="name" value="{{old('name')}}" class="form-control" />
+                                     @if ($errors->has('name'))
+                                        <span class="help-block">
+                                            <strong>{{ $errors->first('name') }}</strong>
+                                        </span>
+                                    @endif
+                                </div>
+
+                                <div class="col_full">
+                                    <label for="register-form-email">Email Address:</label>
+                                    <input type="text" id="register-form-email" name="email" value="{{old('email')}}" class="form-control" />
+                                    @if ($errors->has('email'))
+                                        <span class="help-block">
+                                            <strong>{{ $errors->first('email') }}</strong>
+                                        </span>
+                                    @endif
+                                </div>
+                                <div class="col_full">
+                                    <label for="register-form-password">Choose Password:</label>
+                                    <input type="password" id="register-form-password" name="password" value="{{old('password')}}" class="form-control" />
+                                    @if ($errors->has('password'))
+                                        <span class="help-block">
+                                            <strong>{{ $errors->first('password') }}</strong>
+                                        </span>
+                                    @endif
+                                </div>
+
+                                <div class="col_full">
+                                    <label for="register-form-repassword">Re-enter Password:</label>
+                                    <input type="password" id="register-form-repassword" name="password_confirmation" value="{{old('password_confirmation')}}" class="form-control" />
+                                    @if ($errors->has('password_confirmation'))
+                                        <span class="help-block">
+                                            <strong>{{ $errors->first('password_confirmation') }}</strong>
+                                        </span>
+                                    @endif
+                                </div>
+
+                                <div class="col_full nobottommargin">
+                                    <button type="submit" class="button button-3d button-black nomargin" id="register-form-submit">Register Now</button>
+                                </div>
+                            {!! Form::close() !!}
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section><!-- #content end -->
+
+        @include('components.front_footer')
+    </div><!-- #wrapper end -->
+
+    <!-- Go To Top
+    ============================================= -->
+    <div id="gotoTop" class="icon-angle-up"></div>
+
+    <!-- External JavaScripts
+    ============================================= -->
+    <script type="text/javascript" src="{{url('js/jquery.js')}}"></script>
+    <script type="text/javascript" src="{{url('js/plugins.js')}}"></script>
+
+    <!-- Footer Scripts
+    ============================================= -->
+    <script type="text/javascript" src="{{url('js/functions.js')}}"></script>
+
+</body>
+</html>

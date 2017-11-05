@@ -32,6 +32,7 @@ Route::get('card-block-stats', 'ApiController@cardBlockStats');
 Route::get('bar-chart-stats', 'ApiController@barChartStats');
 Route::get('map-feed', 'ApiController@mapFeed');
 Route::get('revenue-over-last-seven-days', 'ApiController@revenueOverLastSevenDays');
+Route::get('kilograms-over-last-seven-days', 'ApiController@kilogramsOverLastSevenDays');
 
 Route::post('token/{token}', function($token){
 	return $token;

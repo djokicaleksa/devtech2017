@@ -9,6 +9,71 @@ $(function () {
     // ============================================================== 
     // Sales overview
     // ============================================================== 
+
+    var data3;
+    data3 = function () {
+            var temp = null;
+            $.ajax({
+                url: 'api/kilograms-over-last-seven-days',
+                method: 'GET',
+                async:false,
+                success: function (data){
+                    temp = data;
+                },
+                error: function (error) {
+                    console.log(error);
+                }
+
+            });
+            return temp;
+        }();
+
+    var chart = new Chartist.Line('#usa', {
+          labels: ['Mon', 'Tue', 'Wed', 'Thu', 'Sat', 'Sun'],
+          series: data3}, {
+          low: 0,
+          high: 28,
+          showArea: true,
+          fullWidth: false,
+          plugins: [
+            Chartist.plugins.tooltip()
+          ],
+            
+        });
+
+        // Offset x1 a tiny amount so that the straight stroke gets a bounding box
+        // Straight lines don't get a bounding box 
+        // Last remark on -> http://www.w3.org/TR/SVG11/coords.html#ObjectBoundingBox
+        chart.on('draw', function(ctx) {  
+          if(ctx.type === 'area') {    
+            ctx.element.attr({
+              x1: ctx.x1 + 0.001
+            });
+          }
+        });
+
+        // Create the gradient definition on created event (always after chart re-render)
+        chart.on('created', function(ctx) {
+          var defs = ctx.svg.elem('defs');
+          defs.elem('linearGradient', {
+            id: 'gradient',
+            x1: 0,
+            y1: 1,
+            x2: 0,
+            y2: 0
+          }).elem('stop', {
+            offset: 0,
+            'stop-color': 'rgba(255, 255, 255, 1)'
+          }).parent().elem('stop', {
+            offset: 1,
+            'stop-color': 'rgba(38, 198, 218, 1)'
+          });
+        });
+    
+            
+    var chart = [chart];
+
+
     var data;
     data = function () {
             var temp = null;
@@ -158,31 +223,31 @@ $(function () {
     // This is for the map
     // ==============================================================
     
-    $('#usa').vectorMap({
-            map : 'us_aea_en',
-            backgroundColor : 'transparent',
-            zoomOnScroll: false,
-            regionStyle : {
-                initial : {
-                    fill : '#c9d6de'
-                }
-            },
-            markers: [{
-                    latLng : [40.71, -74.00],
-                    name : 'Newyork: 250'
-                    , style: {fill: '#1e88e5'}
-                },{
-                    latLng : [39.01, -98.48],
-                    name : 'Kansas: 250'
-                    , style: {fill: '#fc4b6c'}
-                },
-              {
-                latLng : [37.38, -122.05],
-                name : 'Vally : 250'
-                , style: {fill: '#26c6da'}
-              }]
-        });
-    // ============================================================== 
+    // $('#usa').vectorMap({
+    //         map : 'us_aea_en',
+    //         backgroundColor : 'transparent',
+    //         zoomOnScroll: false,
+    //         regionStyle : {
+    //             initial : {
+    //                 fill : '#c9d6de'
+    //             }
+    //         },
+    //         markers: [{
+    //                 latLng : [40.71, -74.00],
+    //                 name : 'Newyork: 250'
+    //                 , style: {fill: '#1e88e5'}
+    //             },{
+    //                 latLng : [39.01, -98.48],
+    //                 name : 'Kansas: 250'
+    //                 , style: {fill: '#fc4b6c'}
+    //             },
+    //           {
+    //             latLng : [37.38, -122.05],
+    //             name : 'Vally : 250'
+    //             , style: {fill: '#26c6da'}
+    //           }]
+    //     });
+    // // ============================================================== 
     // Badnwidth usage
     // ============================================================== 
     new Chartist.Line('.usage', {
