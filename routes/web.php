@@ -1,6 +1,7 @@
 <?php
 
 use App\Events\eventTrigger;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -51,4 +52,20 @@ Route::middleware(['user'])->group(function(){
 	Route::get('/user', function(){
 		return "user";
 	});
+});
+
+
+Route::post('image-upload', function(){
+
+    $filename = realpath('images/videos/zeka.mp4');
+    $publicId = 'zeka-ludi';
+    $options = ['faces'=>true];
+
+    try {
+    	$image = Cloudder::uploadVideo($filename, $publicId, $options);
+    	return response()->json(['image'=>$image->api]);
+	}catch (Exception $e) {
+    	echo $e;
+	}
+	
 });
