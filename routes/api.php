@@ -3,6 +3,7 @@
 use Illuminate\Http\Request;
 use App\User;
 use App\Barcode;
+
 use App\Http\Resources\User as UserResource;
 /*
 |--------------------------------------------------------------------------
@@ -43,32 +44,45 @@ Route::post('token/{token}', function($token){
 
 Route::get('/subscription/create/notification/{eventUrl}', function($json){
 	
-	// $user_data = [
-	// 	'email' => $json['email'],
-	// 	'name' => $json['firstName'] . ' ' . $json['lastName'],
-	// 	'role_id' => 2, //B2B 
-	// ];
+	$user_data = [
+		'email' => $json['email'],
+		'name' => $json['firstName'] . ' ' . $json['lastName'],
+		'role_id' => 2, //B2B 
+	];
 	
 	
-	// $order_data = $json['order']; //podaci o narudzbini
-	// $user = User::where('email', $user_data['email'])->first();
+	$order_data = $json['order']; //podaci o narudzbini
+	$user = User::where('email', $user_data['email'])->first();
 
-	// if(check($order_data)){ 
-	// 	if($user != null){
-	// 		$user = User::create($user_data);
-	// 		$order = Order::create($order_data);
-	// 		$order->user_id = $user->id;
-	// 		$order->save();
+	if(check($order_data)){ 
+		if($user == null){
+			$user = User::create($user_data);
+			$order = Order::create($order_data);
+			$order->user_id = $user->id;
+			$order->save();
 
-	// 		event(new newOrder($order));
-	// 	}
-		
+			event(new newOrder($order));
 
-	// }
+			return response()->json([
+					"accountIdentifier"=> $user->id,
+ 					"success"=>true
+				]);
+		}else{
+			return response()->json([
+					"errorCode"=> "USER_ALREADY_EXISTS",
+ 					"success"=>false
+				]);
+		}
+	}else{
+		return response()->json([
+					"message"=> 'Order is not valid',
+ 					"success"=>false
+				]);
+	}
 	
 });
 
-Route::get('/subscription/change/notification', function(){
+Route::get('/subscription/change/notification', function($json){
 
 });
 
@@ -78,4 +92,17 @@ Route::get('/subscription/cancel/notification/{eventUrl}', function(){
 
 Route::get('/subscription/status/notification', function(){
 
+});
+
+Route::get('/video', function(){
+
+	return response()->json([
+			'video_url' => 'http://res.cloudinary.com/dc1dbax5r/video/upload/v1509890409/Best_emotional_advertisement_ever_vzp7p6.mp4'
+		]);
+});
+
+Route::get('/ad-sold/{id}', function($id){
+	$ad = \App\Ads::find($id);
+	$ad->update(['cnt' => $ad->cnt++]);
+	return response()->json(['status'=>200, 'message'=>'gj']);
 });
