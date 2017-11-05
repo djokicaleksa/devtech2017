@@ -42,7 +42,12 @@
 
     <!-- External JavaScripts
     ============================================= -->
+    <script type="text/javascript" src="{{url('js/jquery.js')}}"></script>
+    <script type="text/javascript" src="{{url('js/plugins.js')}}"></script>
 
+    <!-- Footer Scripts
+    ============================================= -->
+    <script type="text/javascript" src="{{url('js/functions.js')}}"></script>
     <script>
 
       function initMap() {
@@ -108,12 +113,7 @@
     <script async defer
     src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDBxZYniuLoJAxgIMo4gfdrSqk-JiKAE3Q &callback=initMap">
     </script>
-    <script type="text/javascript" src="{{url('js/jquery.js')}}"></script>
-    <script type="text/javascript" src="{{url('js/plugins.js')}}"></script>
 
-    <!-- Footer Scripts
-    ============================================= -->
-    <script type="text/javascript" src="{{url('js/functions.js')}}"></script>
 
 </body>
 </html>
