@@ -20,20 +20,21 @@
 					<nav id="primary-menu">
 
 						<ul>
-							<li><a href="index.php"><div>Home</div></a></li>
-							<li><a href="contact.php"><div>Contact</div></a></li>
-							<li><a href="about.php"><div>About us</div></a></li>
+							<li><a href="{{url('/')}}"><div>Home</div></a></li>
+							<li><a href="{{url('contact')}}"><div>Contact</div></a></li>
+							<li><a href="{{url('about')}}"><div>About us</div></a></li>
+							<li><a href="{{url('location')}}"><div>Locations</div></a></li>
 							
 	
 
-							<li><a href="index.html"><div>Ne znam jos</div></a>
+							<li><a></a>
 								<ul>
 									<li><a href="index-corporate.html"><div>Home - Corporate</div></a>
 										<ul>
-											<li><a href="index-corporate.html"><div>Corporate - Layout 1</div></a></li>
-											<li><a href="index-corporate-2.html"><div>Corporate - Layout 2</div></a></li>
-											<li><a href="index-corporate-3.html"><div>Corporate - Layout 3</div></a></li>
-											<li><a href="index-corporate-4.html"><div>Corporate - Layout 4</div></a></li>
+											<li><a href="{{url('/')}}"><div>Home</div></a></li>
+											<li><a href="{{url('contact')}}"><div>Contact</div></a></li>
+											<li><a href="{{url('about')}}"><div>About us</div></a></li>
+											<li><a href="{{url('location')}}"><div>Locations</div></a></li>
 										</ul>
 									</li>
 								</ul>

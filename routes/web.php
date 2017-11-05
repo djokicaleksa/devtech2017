@@ -70,3 +70,17 @@ Route::post('image-upload', function(){
 	}
 	
 });
+
+
+
+Route::get('location', function(){
+	return view('location');
+});
+
+Route::get('about', function(){
+	return view('about');
+});
+
+Route::get('contact', function(){
+	return view('about');
+});

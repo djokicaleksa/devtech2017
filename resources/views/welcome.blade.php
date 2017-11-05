@@ -46,8 +46,8 @@
                             </div>
                             <div class="video-wrap">
                                 <video id="slide-video" poster="images/videos/explore.jpg" preload="auto" loop autoplay muted>
-                                    <source src='images/videos/zeka.webm' type='video/webm' />
-                                    <source src='images/videos/zeka.mp4' type='video/mp4' />
+                                    <source src="{{url('images/videos/zeka.webm')}}" type='video/webm' />
+                                    <source src="{{url('images/videos/zeka.mp4')}}" type='video/mp4' />
                                 </video>
                                 <div class="video-overlay" style="background-color: rgba(0,0,0,0.55);"></div>
                             </div>
@@ -74,16 +74,15 @@
 
                         <div class="col-lg-5">
                             <div class="heading-block topmargin">
-                                <h1>Welcome to Canvas.<br>MultiPurpose Template.</h1>
+                                <h1>Welcome to binary<br> your favourite bin.</h1>
                             </div>
-                            <p class="lead">Create a website that you are gonna be proud of. Be it Business, Portfolio, Agency, Photography, eCommerce &amp; much more.</p>
+                            <p class="lead">Disposing litter in this container earns you money.</p>
                         </div>
 
                         <div class="col-lg-7">
 
-                            <div style="position: relative; margin-bottom: -60px;" class="ohidden" data-height-lg="426" data-height-md="567" data-height-sm="470" data-height-xs="287" data-height-xxs="183">
-                                <img src="{{url('images/services/main-fbrowser.png')}}" style="position: absolute; top: 0; left: 0;" data-animate="fadeInUp" data-delay="100" alt="Chrome">
-                                <img src="{{url('images/services/main-fmobile.png')}}" style="position: absolute; top: 0; left: 0;" data-animate="fadeInUp" data-delay="400" alt="iPad">
+                            <div style="position: relative; margin-bottom: -100px;" class="ohidden" data-height-lg="500" data-height-md="567" data-height-sm="470" data-height-xs="287" data-height-xxs="183">
+                                <img src="images/services/binary1.jpg" style="position: absolute; top: 0; left: 0;" data-animate="fadeInUp" data-delay="100" alt="Chrome">
                             </div>
 
                         </div>
@@ -97,30 +96,30 @@
                         <div class="row topmargin-sm clearfix">
 
                             <div class="col-md-4 bottommargin">
-                                <i class="i-plain color i-large icon-line2-screen-desktop inline-block" style="margin-bottom: 15px;"></i>
+                                <i class="i-plain color i-large icon-line2-graph inline-block" style="margin-bottom: 15px;"></i>
                                 <div class="heading-block nobottomborder" style="margin-bottom: 15px;">
-                                    <span class="before-heading">Scalable on Devices.</span>
-                                    <h4>Responsive &amp; Retina</h4>
+                                    <span class="before-heading">Make transactions with NFC</span>
+                                    <h4>Transactions</h4>
                                 </div>
-                                <p>Employment respond committed meaningful fight against oppression social challenges rural legal aid governance. Meaningful work, implementation, process cooperation, campaign inspire.</p>
+                                <p>For every can and bottle you get a certain amount of money, depending on it's weight and material.</p>
                             </div>
 
                             <div class="col-md-4 bottommargin">
-                                <i class="i-plain color i-large icon-line2-energy inline-block" style="margin-bottom: 15px;"></i>
+                                <i class="i-plain color i-large icon-line2-bar-chart inline-block" style="margin-bottom: 15px;"></i>
                                 <div class="heading-block nobottomborder" style="margin-bottom: 15px;">
-                                    <span class="before-heading">Smartly Coded &amp; Maintained.</span>
-                                    <h4>Powerful Performance</h4>
+                                    <span class="before-heading">Advanced analysis of data</span>
+                                    <h4>Statistics</h4>
                                 </div>
-                                <p>Medecins du Monde Jane Addams reduce child mortality challenges Ford Foundation. Diversification shifting landscape advocate pathway to a better life rights international. Assessment.</p>
+                                <p>In depth statistics regarding amount of litter collected, sold and money that returned to customers.</p>
                             </div>
 
                             <div class="col-md-4 bottommargin">
-                                <i class="i-plain color i-large icon-line2-equalizer inline-block" style="margin-bottom: 15px;"></i>
+                                <i class="i-plain color i-large icon-line2-trash inline-block" style="margin-bottom: 15px;"></i>
                                 <div class="heading-block nobottomborder" style="margin-bottom: 15px;">
-                                    <span class="before-heading">Flexible &amp; Customizable.</span>
-                                    <h4>Truly Multi-Purpose</h4>
+                                    <span class="before-heading">Dispose of waste, earn coins</span>
+                                    <h4>Bincoin - Cryptocurrency</h4>
                                 </div>
-                                <p>Democracy inspire breakthroughs, Rosa Parks; inspiration raise awareness natural resources. Governance impact; transformative donation philanthropy, respect reproductive.</p>
+                                <p>Dispose your waste to Binary and earn Bincoin. </p>
                             </div>
 
                         </div>
@@ -133,100 +132,111 @@
                     <div class="row topmargin-lg bottommargin-sm">
 
                         <div class="heading-block center">
-                            <h2>Even more Feature Rich</h2>
-                            <span class="divcenter">Philanthropy convener livelihoods, initiative end hunger gender rights local. John Lennon storytelling; advocate, altruism impact catalyst.</span>
+                            <h2>Binary model</h2>
+                            <span class="divcenter"></span>
                         </div>
 
                         <div class="col-md-4 col-sm-6 bottommargin">
 
                             <div class="feature-box fbox-right topmargin" data-animate="fadeIn">
                                 <div class="fbox-icon">
-                                    <a href="#"><i class="icon-line-heart"></i></a>
+                                    <a href="#"><i class="icon-line2-credit-card"></i></a>
                                 </div>
-                                <h3>Boxed &amp; Wide Layouts</h3>
-                                <p>Stretch your Website to the Full Width or make it boxed to surprise your visitors.</p>
+                                <h3>NFC card reader</h3>
+                                <p>Touch it with your card to begin the transaction.</p>
                             </div>
 
                             <div class="feature-box fbox-right topmargin" data-animate="fadeIn" data-delay="200">
                                 <div class="fbox-icon">
                                     <a href="#"><i class="icon-line-paper"></i></a>
                                 </div>
-                                <h3>Extensive Documentation</h3>
-                                <p>We have covered each &amp; everything in our Docs including Videos &amp; Screenshots.</p>
+                                <h3>Face recognition</h3>
+                                <p>Find out the mood of the customer and adjust the commercials.</p>
                             </div>
 
                             <div class="feature-box fbox-right topmargin" data-animate="fadeIn" data-delay="400">
                                 <div class="fbox-icon">
                                     <a href="#"><i class="icon-line-layers"></i></a>
                                 </div>
-                                <h3>Parallax Support</h3>
-                                <p>Display your Content attractively using Parallax Sections with HTML5 Videos.</p>
+                                <h3>Sorting litter</h3>
+                                <p>Depending on material, cans and bottles will be sorted into different containers.</p>
                             </div>
 
                         </div>
 
                         <div class="col-md-4 hidden-sm bottommargin center">
-                            <img src="{{url('images/services/iphone7.png')}}" alt="iphone 2">
+                            <img src="images/services/binary.jpg" alt="iphone 2" style="padding-top: 40px;">
                         </div>
 
                         <div class="col-md-4 col-sm-6 bottommargin">
 
                             <div class="feature-box topmargin" data-animate="fadeIn">
                                 <div class="fbox-icon">
-                                    <a href="#"><i class="icon-line-power"></i></a>
+                                    <a href="#"><i class="icon-line2-screen-desktop"></i></a>
                                 </div>
-                                <h3>HTML5 Video</h3>
-                                <p>Canvas provides support for Native HTML5 Videos that can be added to a Background.</p>
+                                <h3>Interactive display</h3>
+                                <p>See the amount of Bincoins you earned with this transaction, account balance and more.</p>
                             </div>
 
                             <div class="feature-box topmargin" data-animate="fadeIn" data-delay="200">
                                 <div class="fbox-icon">
-                                    <a href="#"><i class="icon-line-check"></i></a>
+                                    <a href="#"><i class="icon-line-stack-2"></i></a>
                                 </div>
-                                <h3>Endless Possibilities</h3>
-                                <p>Complete control on each &amp; every element that provides endless customization.</p>
+                                <h3>Commercials</h3>
+                                <p>Choose Binary to place your commercials and experience our targeted marketing</p>
                             </div>
 
                             <div class="feature-box topmargin" data-animate="fadeIn" data-delay="400">
                                 <div class="fbox-icon">
                                     <a href="#"><i class="icon-bulb"></i></a>
                                 </div>
-                                <h3>Light &amp; Dark Color Schemes</h3>
-                                <p>Change your Website's Primary Scheme instantly by simply adding the dark class.</p>
+                                <h3>Barcode scan</h3>
+                                <p>In order to keep thorough statistics, we are scanning barcodes for detailed info. </p>
                             </div>
 
                         </div>
 
-                    </div>
-
-                </div>
-
-                <div class="row clearfix common-height">
-
-                    <div class="col-md-6 center col-padding" style="background: url('images/services/main-bg.jpg') center center no-repeat; background-size: cover;">
-                        <div>&nbsp;</div>
-                    </div>
-
-                    <div class="col-md-6 center col-padding" style="background-color: #F5F5F5;">
-                        <div>
-                            <div class="heading-block nobottomborder">
-                                <span class="before-heading color">Easily Understandable &amp; Customizable.</span>
-                                <h3>Walkthrough Videos &amp; Demos</h3>
-                            </div>
-
-                            <div class="center bottommargin">
-                                <a href="http://vimeo.com/101373765" data-lightbox="iframe" style="position: relative;">
-                                    <img src="images/services/video.jpg" alt="Video">
-                                    <span class="i-overlay nobg"><img src="images/icons/video-play.png" alt="Play"></span>
-                                </a>
-                            </div>
-                            <p class="lead nobottommargin">Democracy inspire breakthroughs, Rosa Parks; inspiration raise awareness natural resources. Governance impact; transformative donation philanthropy, respect reproductive.</p>
-                        </div>
                     </div>
 
                 </div>
 
                 <div class="row clearfix bottommargin-lg common-height">
+
+                    <div class="col-md-3 col-sm-6 dark center col-padding" style="background-color: #515875;">
+                        <div>
+                            <i class="i-plain i-xlarge divcenter icon-line2-graph"></i>
+                            <div class="counter counter-lined"><span data-from="100" data-to="846" data-refresh-interval="50" data-speed="2000"></span>K</div>
+                            <h5>Collected cans</h5>
+                        </div>
+                    </div>
+
+                    <div class="col-md-3 col-sm-6 dark center col-padding" style="background-color: #576F9E;">
+                        <div>
+                            <i class="i-plain i-xlarge divcenter icon-line2-bar-chart"></i>
+                            <div class="counter counter-lined"><span data-from="3000" data-to="21500" data-refresh-interval="100" data-speed="2500"></span></div>
+                            <h5>Collected plastic</h5>
+                        </div>
+                    </div>
+
+                    <div class="col-md-3 col-sm-6 dark center col-padding" style="background-color: #6697B9;">
+                        <div>
+                            <i class="i-plain i-xlarge divcenter icon-line-bar-graph-2"></i>
+                            <div class="counter counter-lined"><span data-from="10" data-to="408" data-refresh-interval="25" data-speed="3500"></span></div>
+                            <h5>Collected glass</h5>
+                        </div>
+                    </div>
+
+                    <div class="col-md-3 col-sm-6 dark center col-padding" style="background-color: #88C3D8;">
+                        <div>
+                            <i class="i-plain i-xlarge divcenter icon-line2-trophy"></i>
+                            <div class="counter counter-lined"><span data-from="60" data-to="1400" data-refresh-interval="30" data-speed="2700"></span></div>
+                            <h5>Summary</h5>
+                        </div>
+                    </div>
+
+                </div>
+
+<!--                 <div class="row clearfix bottommargin-lg common-height">
 
                     <div class="col-md-3 col-sm-6 dark center col-padding" style="background-color: #515875;">
                         <div>
@@ -260,133 +270,122 @@
                         </div>
                     </div>
 
-                </div>
+                </div> -->
+
+<!--                 <div class="section">
+                    <div class="container clearfix">
+
+                        <div class="row topmargin-sm">
+
+                            <div class="heading-block center">
+                                <h3>Meet Our Team</h3>
+                            </div>
+
+                            <div class="col-md-4 col-sm-4 bottommargin">
+
+                                <div class="team">
+                                    <div class="team-image">
+                                        <img src="images/team/arsa.jpg" alt="Nikola Arsic">
+                                    </div>
+                                    <div class="team-desc team-desc-bg">
+                                        <div class="team-title"><h4>Nikola Arsic</h4><span>CEO</span></div>
+                                        <a href="#" class="social-icon inline-block si-small si-light si-rounded si-facebook">
+                                            <i class="icon-facebook"></i>
+                                            <i class="icon-facebook"></i>
+                                        </a>
+                                        <a href="#" class="social-icon inline-block si-small si-light si-rounded si-twitter">
+                                            <i class="icon-twitter"></i>
+                                            <i class="icon-twitter"></i>
+                                        </a>
+                                        <a href="#" class="social-icon inline-block si-small si-light si-rounded si-gplus">
+                                            <i class="icon-gplus"></i>
+                                            <i class="icon-gplus"></i>
+                                        </a>
+                                    </div>
+                                </div>
+
+                            </div>
+
+                            <div class="col-md-4 col-sm-4 bottommargin">
+
+                                <div class="team">
+                                    <div class="team-image">
+                                        <img src="images/team/dule.jpg" alt="Dusan Mladenovic">
+                                    </div>
+                                    <div class="team-desc team-desc-bg">
+                                        <div class="team-title"><h4>Dusan Mladenovic</h4><span>Founder</span></div>
+                                        <a href="#" class="social-icon inline-block si-small si-light si-rounded si-facebook">
+                                            <i class="icon-facebook"></i>
+                                            <i class="icon-facebook"></i>
+                                        </a>
+                                        <a href="#" class="social-icon inline-block si-small si-light si-rounded si-twitter">
+                                            <i class="icon-twitter"></i>
+                                            <i class="icon-twitter"></i>
+                                        </a>
+                                        <a href="#" class="social-icon inline-block si-small si-light si-rounded si-gplus">
+                                            <i class="icon-gplus"></i>
+                                            <i class="icon-gplus"></i>
+                                        </a>
+                                    </div>
+                                </div>
+
+                            </div>
+
+                            <div class="col-md-4 col-sm-4 bottommargin">
+
+                                <div class="team">
+                                    <div class="team-image">
+                                        <img src="images/team/zeka.jpg" alt="Milos Zecevic">
+                                    </div>
+                                    <div class="team-desc team-desc-bg">
+                                        <div class="team-title"><h4>Milos Zecevic</h4><span>CTO</span></div>
+                                        <a href="#" class="social-icon inline-block si-small si-light si-rounded si-facebook">
+                                            <i class="icon-facebook"></i>
+                                            <i class="icon-facebook"></i>
+                                        </a>
+                                        <a href="#" class="social-icon inline-block si-small si-light si-rounded si-twitter">
+                                            <i class="icon-twitter"></i>
+                                            <i class="icon-twitter"></i>
+                                        </a>
+                                        <a href="#" class="social-icon inline-block si-small si-light si-rounded si-gplus">
+                                            <i class="icon-gplus"></i>
+                                            <i class="icon-gplus"></i>
+                                        </a>
+                                    </div>
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+                </div> -->
 
                 <div class="container clearfix">
 
-                    <div class="col_one_third">
-                        <div class="feature-box fbox-small fbox-plain" data-animate="fadeIn">
-                            <div class="fbox-icon">
-                                <a href="#"><i class="icon-line-monitor"></i></a>
-                            </div>
-                            <h3>Responsive Layout</h3>
-                            <p>Powerful Layout with Responsive functionality that can be adapted to any screen size.</p>
-                        </div>
-                    </div>
-
-                    <div class="col_one_third">
-                        <div class="feature-box fbox-small fbox-plain" data-animate="fadeIn" data-delay="200">
-                            <div class="fbox-icon">
-                                <a href="#"><i class="icon-line-eye"></i></a>
-                            </div>
-                            <h3>Retina Ready Graphics</h3>
-                            <p>Looks beautiful &amp; ultra-sharp on Retina Displays with Retina Icons, Fonts &amp; Images.</p>
-                        </div>
-                    </div>
-
-                    <div class="col_one_third col_last">
-                        <div class="feature-box fbox-small fbox-plain" data-animate="fadeIn" data-delay="400">
-                            <div class="fbox-icon">
-                                <a href="#"><i class="icon-line-star"></i></a>
-                            </div>
-                            <h3>Powerful Performance</h3>
-                            <p>Optimized code that are completely customizable and deliver unmatched fast performance.</p>
-                        </div>
-                    </div>
-
-                    <div class="clear"></div>
-
-                    <div class="col_one_third">
-                        <div class="feature-box fbox-small fbox-plain" data-animate="fadeIn" data-delay="600">
-                            <div class="fbox-icon">
-                                <a href="#"><i class="icon-line-play"></i></a>
-                            </div>
-                            <h3>HTML5 Video</h3>
-                            <p>Canvas provides support for Native HTML5 Videos that can be added to a Full Width Background.</p>
-                        </div>
-                    </div>
-
-                    <div class="col_one_third">
-                        <div class="feature-box fbox-small fbox-plain" data-animate="fadeIn" data-delay="800">
-                            <div class="fbox-icon">
-                                <a href="#"><i class="icon-params"></i></a>
-                            </div>
-                            <h3>Parallax Support</h3>
-                            <p>Display your Content attractively using Parallax Sections that have unlimited customizable areas.</p>
-                        </div>
-                    </div>
-
-                    <div class="col_one_third col_last">
-                        <div class="feature-box fbox-small fbox-plain" data-animate="fadeIn" data-delay="1000">
-                            <div class="fbox-icon">
-                                <a href="#"><i class="icon-line-circle-check"></i></a>
-                            </div>
-                            <h3>Endless Possibilities</h3>
-                            <p>Complete control on each &amp; every element that provides endless customization possibilities.</p>
-                        </div>
-                    </div>
-
-                    <div class="clear"></div>
-
-                    <div class="col_one_third bottommargin-sm">
-                        <div class="feature-box fbox-small fbox-plain" data-animate="fadeIn" data-delay="600">
-                            <div class="fbox-icon">
-                                <a href="#"><i class="icon-bulb"></i></a>
-                            </div>
-                            <h3>Light &amp; Dark Color Schemes</h3>
-                            <p>Change your Website's Primary Scheme instantly by simply adding the dark class to the body.</p>
-                        </div>
-                    </div>
-
-                    <div class="col_one_third bottommargin-sm">
-                        <div class="feature-box fbox-small fbox-plain" data-animate="fadeIn" data-delay="800">
-                            <div class="fbox-icon">
-                                <a href="#"><i class="icon-heart2"></i></a>
-                            </div>
-                            <h3>Boxed &amp; Wide Layouts</h3>
-                            <p>Stretch your Website to the Full Width or make it boxed to surprise your visitors.</p>
-                        </div>
-                    </div>
-
-                    <div class="col_one_third bottommargin-sm col_last">
-                        <div class="feature-box fbox-small fbox-plain" data-animate="fadeIn" data-delay="1000">
-                            <div class="fbox-icon">
-                                <a href="#"><i class="icon-note"></i></a>
-                            </div>
-                            <h3>Extensive Documentation</h3>
-                            <p>We have covered each &amp; everything in our Documentation including Videos &amp; Screenshots.</p>
-                        </div>
-                    </div>
-
-                    <div class="clear"></div>
-
-                </div>
-
-                
-                    
-
-                <div class="container clearfix">
-
-                    <div class="col_one_third bottommargin-sm center">
-                        <img data-animate="fadeInLeft" src="{{url('images/services/iphone6.png')}}" alt="Iphone">
+                    <div class="col_one_third bottommargin-sm center" style="margin-top: 50px; margin-right: 50px">
+                        <img data-animate="fadeInLeft" src="images/services/bincoin.png" alt="Iphone">
                     </div>
 
                     <div class="col_two_third bottommargin-sm col_last">
 
                         <div class="heading-block topmargin-sm">
-                            <h3>Optimized for Mobile &amp; Touch Enabled Devices.</h3>
+                            <h3>Cryptocurrency related to Binary</h3>
                         </div>
 
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vero quod consequuntur quibusdam, enim expedita sed quia nesciunt incidunt accusamus necessitatibus modi adipisci officia libero accusantium esse hic, obcaecati, ullam, laboriosam!</p>
+                        <p></p>
 
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Corrupti vero, animi suscipit id facere officia. Aspernatur, quo, quos nisi dolorum aperiam fugiat deserunt velit rerum laudantium cum magnam.</p>
+                        <p>Recycling your waste earns you our coins which can be exchanged for real money.</p> 
 
-                        <a href="#" class="button button-border button-dark button-rounded button-large noleftmargin topmargin-sm">Learn more</a>
+                        <a href="#" class="button button-border button-dark button-rounded button-large noleftmargin topmargin-sm">Read more about BINCOIN</a>
 
                     </div>
 
                 </div>
 
+                
+                    
+<!-- 
                 <div class="section parallax dark nobottommargin" style="background-image: url('images/services/home-testi-bg.jpg'); padding: 100px 0;" data-stellar-background-ratio="0.4">
 
                     <div class="heading-block center">
@@ -436,7 +435,7 @@
                         </div>
                     </div>
 
-                </div>
+                </div> -->
 
                 
                 <div class="section">
@@ -452,10 +451,10 @@
 
                                 <div class="team">
                                     <div class="team-image">
-                                        <img src="{{url('images/team/arsa.jpg')}}" alt="John Doe">
+                                        <img src="images/team/arsa.jpg" alt="Nikola Arsic">
                                     </div>
                                     <div class="team-desc team-desc-bg">
-                                        <div class="team-title"><h4>John Doe</h4><span>CEO</span></div>
+                                        <div class="team-title"><h4>Nikola Arsic</h4><span>CEO</span></div>
                                         <a href="#" class="social-icon inline-block si-small si-light si-rounded si-facebook">
                                             <i class="icon-facebook"></i>
                                             <i class="icon-facebook"></i>
@@ -477,10 +476,10 @@
 
                                 <div class="team">
                                     <div class="team-image">
-                                        <img src="{{url('images/team/dule.jpg')}}" alt="Josh Clark">
+                                        <img src="images/team/dule.jpg" alt="Dusan Mladenovic">
                                     </div>
                                     <div class="team-desc team-desc-bg">
-                                        <div class="team-title"><h4>Josh Clark</h4><span>Co-Founder</span></div>
+                                        <div class="team-title"><h4>Dusan Mladenovic</h4><span>Founder</span></div>
                                         <a href="#" class="social-icon inline-block si-small si-light si-rounded si-facebook">
                                             <i class="icon-facebook"></i>
                                             <i class="icon-facebook"></i>
@@ -502,10 +501,10 @@
 
                                 <div class="team">
                                     <div class="team-image">
-                                        <img src="{{url('images/team/zeka.jpg')}}" alt="Mary Jane">
+                                        <img src="images/team/zeka.jpg" alt="Milos Zecevic">
                                     </div>
                                     <div class="team-desc team-desc-bg">
-                                        <div class="team-title"><h4>Mary Jane</h4><span>Sales</span></div>
+                                        <div class="team-title"><h4>Milos Zecevic</h4><span>CTO</span></div>
                                         <a href="#" class="social-icon inline-block si-small si-light si-rounded si-facebook">
                                             <i class="icon-facebook"></i>
                                             <i class="icon-facebook"></i>
