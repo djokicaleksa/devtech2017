@@ -164,6 +164,7 @@ return [
         Illuminate\Validation\ValidationServiceProvider::class,
         Illuminate\View\ViewServiceProvider::class,
         JD\Cloudder\CloudderServiceProvider::class,
+        Aacotroneo\Saml2\Saml2ServiceProvider::class,
 
         /*
          * Package Service Providers...
@@ -227,7 +228,8 @@ return [
         'URL' => Illuminate\Support\Facades\URL::class,
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
-        'Cloudder' => JD\Cloudder\Facades\Cloudder::class
+        'Cloudder' => JD\Cloudder\Facades\Cloudder::class,
+        'Saml2' => Aacotroneo\Saml2\Facades\Saml2Auth::class,
 
     ],
 

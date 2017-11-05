@@ -1,42 +1,36 @@
 @extends('layouts.admin')
 
 @section('content')
-@include('components.page_title', ['title'=>'Bins'])
+@include('components.page_title', ['title'=>'Ads'])
 <div class="row">
                     <div class="col-12">
                         <div class="card">
                             <div class="card-block">
-                                <h4 class="card-title">Bins</h4>
+                                <h4 class="card-title">Ads</h4>
                                 <h6 class="card-subtitle"></h6>
                                 <div class="table-responsive">
-                                    <table id="demo-foo-addrow" class="table m-t-30 table-hover contact-list" data-page-size="10">
+                                    <table id="demo-foo-addrow" class="table m-t-30 table-hover" data-page-size="10">
                                         <thead>
                                             <tr>
                                                 <th>ID</th>
-                                                <th>Longitude</th>
-                                                <th>Latitude</th>
-                                                <th>Status</th>
+                                                <th>Name</th>
+                                                <th>Image link</th>
+                                                <th>Owner</th>
                                                 <th></th>
                                             </tr>
                                         </thead>
                                         <tbody>
-                                        @foreach($bins as $bin)
+                                        @foreach($ads as $ad)
                                             <tr>
-                                                <td>{{$bin->id}}</td>
+                                                <td>{{$ad->id}}</td>
                                                 <td>
-                                                    {{$bin->long}}
+                                                    {{$ad->name}}
                                                 </td>
-                                                <td>{{$bin->lat}}</td>
+                                                <td><img src="{{ Cloudder::secureShow($ad->image) }}" width="130"></td>
+                                                <td><a href="{{url('dashboard/users/' . $ad->user->id)}}" >{{$ad->user->name}}</a></td>
                                                 <td>
-                                                	@if($bin->status == 0)
-                                                		<span class="label label-danger">Not working</span>
-                                                	@else
-                                                		<span class="label label-success">Active</span>
-                                                	@endif
-                                                </td>
-                                                <td>
-                                                    <button type="button" onclick="event.preventDefault(); document.getElementById('deleteform{{$bin->id}}').submit()" class="btn btn-sm btn-icon btn-pure btn-outline delete-row-btn" data-toggle="tooltip" data-original-title="Delete"><i class="ti-close" aria-hidden="true"></i></button>
-                                                    {!! Form::model($bin, ['method'=>'delete', 'action'=>['BinController@destroy', $bin->id], 'style'=>'display;', 'id'=>'deleteform'.$bin->id])!!}
+                                                    <button type="button" onclick="event.preventDefault(); document.getElementById('deleteform{{$ad->id}}').submit()" class="btn btn-sm btn-icon btn-pure btn-outline delete-row-btn" ><i class="ti-close" aria-hidden="true"></i></button>
+                                                    {!! Form::model($ad, ['method'=>'delete', 'action'=>['AdsController@destroy', $ad->id], 'style'=>'display;', 'id'=>'deleteform'.$ad->id])!!}
                                                     {!! csrf_field() !!}
                                                     {!! Form::close() !!}
                                                 </td>
@@ -44,12 +38,12 @@
                                         @endforeach    
                                         </tbody>
                                         <ul id="links">
-                                        {!! $bins->links()!!}
+                                        {!! $ads->links()!!}
                                         </ul>
                                         <tfoot>
                                             <tr>
                                                 <td colspan="2">
-                                                    <a href="{{url('/dashboard/bins/create')}}" class="btn btn-info btn-rounded">Add New Bin</button>
+                                                    <a href="{{url('/dashboard/ads/create')}}" class="btn btn-info btn-rounded" >Add New ad</button>
                                                 </td>
                                                 <div id="add-contact" class="modal fade in" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
                                                     <div class="modal-dialog">

@@ -32,6 +32,7 @@ Route::get('/verifyemail/{token}', 'Auth\RegisterController@verify');
 
 Route::middleware(['superadmin'])->group(function(){
 	Route::prefix('dashboard/')->group(function(){
+		Route::resource('ads', 'AdsController');
 		Route::resource('bins', 'BinController');
 		Route::resource('materials', 'MaterialController');
 		Route::get('/', 'SuperadminController@index');

@@ -54,7 +54,9 @@
 						</div><!-- #top-search end -->
 
 						<ul>
-						    <li><a href="{{url('/login')}}"><div>Login & Register</div></a></li>
+							@if(!Auth::check())
+							    <li><a href="{{url('/login')}}"><div>Login & Register</div></a></li>
+							@endif	
 						</ul>
 
 

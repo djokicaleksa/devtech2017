@@ -25,6 +25,9 @@ Route::middleware(['apiauth'])->group(function(){
 
 	Route::get('/barcode/{token}/{bin_id}/{barcode}', 'ApiController@getProduct');
 
+	Route::get('/ads-feed/{token}/{bin_id}', 'AdsController@adsFeed');
+
+	// Route::post('');
 });
 
 Route::post('recycle', 'ApiController@recycle');
@@ -36,4 +39,43 @@ Route::get('kilograms-over-last-seven-days', 'ApiController@kilogramsOverLastSev
 
 Route::post('token/{token}', function($token){
 	return $token;
+});
+
+Route::get('/subscription/create/notification/{eventUrl}', function($json){
+	
+	// $user_data = [
+	// 	'email' => $json['email'],
+	// 	'name' => $json['firstName'] . ' ' . $json['lastName'],
+	// 	'role_id' => 2, //B2B 
+	// ];
+	
+	
+	// $order_data = $json['order']; //podaci o narudzbini
+	// $user = User::where('email', $user_data['email'])->first();
+
+	// if(check($order_data)){ 
+	// 	if($user != null){
+	// 		$user = User::create($user_data);
+	// 		$order = Order::create($order_data);
+	// 		$order->user_id = $user->id;
+	// 		$order->save();
+
+	// 		event(new newOrder($order));
+	// 	}
+		
+
+	// }
+	
+});
+
+Route::get('/subscription/change/notification', function(){
+
+});
+
+Route::get('/subscription/cancel/notification/{eventUrl}', function(){
+
+});
+
+Route::get('/subscription/status/notification', function(){
+
 });

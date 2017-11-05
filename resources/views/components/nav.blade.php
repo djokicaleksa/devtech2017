@@ -320,8 +320,9 @@
                         </li>
                         <li> <a class="has-arrow waves-effect waves-dark" href="{{url('dashboard/materials')}}" aria-expanded="false"><i class="mdi mdi-gauge"></i><span class="hide-menu">Materials </span></a>
                         </li>
-
                         <li class="nav-devider"></li>
+                        <li> <a class="has-arrow waves-effect waves-dark" href="{{url('dashboard/ads')}}" aria-expanded="false"><i class="mdi mdi-gauge"></i><span class="hide-menu">Ads </span></a>
+                        </li>
                        
                     </ul>
                 </nav>

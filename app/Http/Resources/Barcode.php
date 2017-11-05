@@ -17,11 +17,7 @@ class Barcode extends Resource
         return [
             'barcode_id' => $this->id,
             'barcode' => $this->barcode,
-            'material' => [
-                'id' => $this->material->id,
-                'name' => $this->material->name,
-                'price' => $this->material->price * ($this->weight/1000),
-                ],
+            'material_id' => $this->material->id, 
             'name' => $this->name,
             'manufacturer' => $this->manufacturer,
             'weight' => $this->weight,
